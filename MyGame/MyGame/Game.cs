@@ -22,12 +22,20 @@ namespace MyGame
 
         public static void Init(Form form)
         {
-            Graphics g;
-            _context = BufferedGraphicsManager.Current;
-            g = form.CreateGraphics();
-            Width = form.ClientSize.Width;
-            Height = form.ClientSize.Height;
-            Buffer = _context.Allocate(g, new Rectangle(0, 0, Width, Height));
+            try
+            {
+                Graphics g;
+                _context = BufferedGraphicsManager.Current;
+                g = form.CreateGraphics();
+                Width = form.ClientSize.Width;
+                Height = form.ClientSize.Height;
+                Buffer = _context.Allocate(g, new Rectangle(0, 0, Width, Height));
+            }
+
+            catch (ArgumentOutOfRangeException) when ((Width<0)||(Width>1000)||(Height<0)||(Height>1000))
+            {
+                Console.WriteLine("Размер экрана задан неверно");
+            }
 
             Load();
 
@@ -54,37 +62,71 @@ namespace MyGame
             {
                 obj.Draw();
             }
+
+            foreach (Asteroid obj in _asteroids)
+            {
+                obj.Draw();
+            }
+
+            _bullet.Draw();
             Buffer.Render();
         }
 
 
         public static BaseObject[] _objs;
+        private static Bullet _bullet;
+        private static Asteroid[] _asteroids;
 
         public static void Load()
         {
             _objs = new BaseObject[30];
-            for (int i = 0; i < _objs.Length/3; i++)
+            _bullet = new Bullet(new Point(0, 200), new Point(5, 0), new Size(4, 1));
+            _asteroids = new Asteroid[3];
+            var rnd = new Random();
+
+            for (int i=0; i<_objs.Length; i++)
             {
-                _objs[i] = new BaseObject(new Point(600, i * 20), new Point( - i,  - i), new Size(10, 10));
+                int r = rnd.Next(5, 50);
+                _objs[i] = new Star(new Point(1000, rnd.Next(0, Game.Height)), new Point(-r, r), new Size(-3, 3));
             }
 
-            for (int i = _objs.Length/5; i < _objs.Length; i++)
+            for (int i = 0; i < _asteroids.Length; i++)
             {
-                _objs[i] = new Star(new Point(600, i * 20), new Point(-i, 0), new Size(5, 5));
+                int r = rnd.Next(5, 50);
+                _asteroids[i] = new Asteroid(new Point(500, rnd.Next(0, Game.Height)), new Point(-r/5, r), new Size(r, r));
             }
 
-            for (int i = _objs.Length / 3; i < _objs.Length*2/3; i++)
+            for (int i = _objs.Length / 3; i < _objs.Length; i++)
             {
-                _objs[i] = new Diamond(new Point(i, i ), new Point(i, i), new Size(i, i));
+                _objs[i] = new Diamond(new Point(i, i ), new Point(i, i), new Size(i/5, i/5));
             }
+
+            for (int i = 27; i < 29; i++)
+            {
+                _objs[i] = new Rocket(new Point(i, i), new Point(i, i), new Size(i / 2, i / 2));
+            }
+
         }
 
         public static void Update()
         {
-            foreach(BaseObject obj in _objs)
+            foreach (BaseObject obj in _objs)
             {
                 obj.Update();
             }
+
+            foreach (Asteroid obj in _asteroids)
+            {
+                obj.Update();
+                if (obj.Collision(_bullet))
+                {
+                    //регенерация астероида и пули в других частях экрана
+                    obj.Reset();
+                    _bullet.Reset();
+                }
+            }
+
+            _bullet.Update();
         }
     }
 }
