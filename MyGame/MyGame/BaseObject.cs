@@ -9,6 +9,8 @@ namespace MyGame
 {
     abstract class BaseObject:ICollision
     {
+        public delegate void Message();
+
         protected Point Pos;
         protected Point Dir;
         protected Size Size;
@@ -25,12 +27,12 @@ namespace MyGame
         public abstract void Update();
 
         //базовый метод регенарации
-        public virtual void Reset()
-        {
-            Random rnd = new Random();
-            Pos.X = rnd.Next(0, Game.Width);
-            Pos.Y = rnd.Next(0, Game.Height);
-        }
+        //public virtual void Reset()
+        //{
+        //    Random rnd = new Random();
+        //    Pos.X = rnd.Next(0, Game.Width);
+        //    Pos.Y = rnd.Next(0, Game.Height);
+        //}
         public bool Collision(ICollision o) => o.Rect.IntersectsWith(this.Rect);
 
         public Rectangle Rect => new Rectangle(Pos, Size);
