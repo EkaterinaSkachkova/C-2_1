@@ -1,0 +1,14 @@
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\obj\Debug\MyGame.csproj.CoreCompileInputs.cache
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\bin\Debug\MyGame.exe.config
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\bin\Debug\MyGame.exe
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\bin\Debug\MyGame.pdb
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\obj\Debug\MyGame.exe
+C:\Users\Екатерина\C#\C#2\Lesson 1\MyGame\MyGame\obj\Debug\MyGame.pdb
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\bin\Debug\MyGame.exe.config
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\bin\Debug\MyGame.exe
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\bin\Debug\MyGame.pdb
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\obj\Debug\MyGame.csprojAssemblyReference.cache
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\obj\Debug\MyGame.csproj.CoreCompileInputs.cache
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\obj\Debug\MyGame.exe
+C:\Users\Екатерина\C#\C#2\C-2_1.git\MyGame\MyGame\obj\Debug\MyGame.pdb
