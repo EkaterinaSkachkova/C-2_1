@@ -1,0 +1,7 @@
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\obj\Debug\C_2_4_2.csprojAssemblyReference.cache
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\obj\Debug\C_2_4_2.csproj.CoreCompileInputs.cache
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\bin\Debug\C_2_4_2.exe.config
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\bin\Debug\C_2_4_2.exe
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\bin\Debug\C_2_4_2.pdb
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\obj\Debug\C_2_4_2.exe
+C:\Users\Екатерина\source\repos\C_2_4\C_2_4_2\obj\Debug\C_2_4_2.pdb

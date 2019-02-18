@@ -1,0 +1,37 @@
+﻿1. Create 2 tables
+
+CREATE TABLE [dbo].[Employee]
+(
+	[FIO] NVARCHAR(128) NOT NULL , 
+    [Age] TINYINT NOT NULL, 
+    [Salary] MONEY NOT NULL, 
+    [Department] TINYINT NOT NULL, 
+    CONSTRAINT [FK_Employee_ToDepartment] FOREIGN KEY ([Department]) REFERENCES [Department]([Id]) 
+)
+
+CREATE TABLE [dbo].[Department]
+(
+	[Id] TINYINT NOT NULL , 
+    [Department_name] NCHAR(128) NOT NULL, 
+    CONSTRAINT [PK_Department] PRIMARY KEY ([Id]) 
+)
+
+2. Complete the table
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Безобразов Алексей Борисович', '63', '400000', 1)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Панайотова Ирина Алексеевна', '36', '220000', 1)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Поспелов Андрей Александрович', '51', '315000', 1)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Скачков Александр Викторович', '49', '180000', 1)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Грюнталь Наталья Викторовна', '48', '220000', 2)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Скачкова Елена Борисовна', '48', '87000', 2)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Шаулова Наталья Сергеевна', '41', '87000', 2)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Голубев Александр Анатольевич', '25', '65000', 3)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Сахаров Петр Борисович', '35', '45000', 3)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Артамонов Сергей Сергеевич', '33', '95000', 4)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Безобразов Алексей Алексеевич', '31', '150000', 4)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Борисов Алексей Геннадьевич', '28', '110000', 4)
+INSERT INTO Employee (FIO, Age, Salary, Department) VALUES (N'Панайотов Сергей Алексеевич', '42', '150000', 4)
+
+INSERT INTO Department (Id, Department) VALUES (1, N'Администрация')
+INSERT INTO Department (Id, Department) VALUES (2, N'Бухгалтерия')
+INSERT INTO Department (Id, Department) VALUES (3, N'Отдел продаж')
+INSERT INTO Department (Id, Department) VALUES (4, N'СТО')

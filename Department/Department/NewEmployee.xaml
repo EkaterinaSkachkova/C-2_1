@@ -1,0 +1,55 @@
+﻿<Window x:Class="Department.NewEmployee"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Department"
+        mc:Ignorable="d"
+        Title="NewEmployee" Height="450" Width="800">
+    <Grid x:Name="mainGrid">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+                <StackPanel Orientation="Vertical">
+                    <TextBox FontWeight="Bold" Text="Департамент"/>
+                    <ListBox x:Name="Департамент" SelectionMode="Single"/>
+                </StackPanel>
+        </Grid>
+
+        <GridSplitter Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" ResizeBehavior="PreviousAndNext" Height="5"/>
+
+        <Border Grid.Row="2" Padding="7" Margin="7" Background="LightSteelBlue">
+            <Grid  Name="gridWorkerDetails" DataContext="{Binding ElementName=Workers, Path=SelectedItem}">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+
+                <TextBlock Margin="7">ФИО:</TextBlock>
+                <TextBox Name="FIO" Margin="5" Grid.Column="1" Text="{Binding Path=Name}"></TextBox>
+                <TextBlock Margin="7" Grid.Row="1">Возраст:</TextBlock>
+                <TextBox Name="Age" Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Age}"></TextBox>
+                <TextBlock Margin="7" Grid.Row="2">Зарплата (руб):</TextBlock>
+                <TextBox Name="Salary" Margin="5" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Salary}"></TextBox>
+                <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Background="White" Name="btnAddListItem1" Width="75" Margin="5,2,5,2" Click="btnAddListItem_Click">Добавить</Button>
+                    <Button Background="White" Name="btnDeleteListItem1" Width="75" Margin="5,2,5,2" Click="btnCancelListItem_Click">Отмена</Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
