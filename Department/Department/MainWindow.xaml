@@ -16,24 +16,31 @@
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Grid>
+        <Grid Name="Depart">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
                 <RowDefinition Height="Auto"></RowDefinition>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Vertical">
-                <StackPanel Orientation="Vertical">
-                    <TextBox FontWeight="Bold" Text="Департамент"/>
-                    <ListBox x:Name="Департамент" SelectionMode="Single"/>
-                </StackPanel>
+                <ListView Margin="7"
+                         x:Name="Департамент" SelectionMode="Single">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn
+                            Header="Департамент"
+                            Width="330"
+                            DisplayMemberBinding="{Binding Path=Department_name}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
                 <StackPanel Margin="0" Orientation="Horizontal">
                     <Label Content="Наименование:" Width="100" Target="{Binding ElementName=textBox}"/>
                     <TextBox x:Name="textBox" Width="690"/>
                 </StackPanel>
                 <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button Background="LightSteelBlue" Name="btnAddListItem" Width="75" Margin="5,2,5,10" Click="btnAddListItem_Click">Добавить</Button>
-                    <Button Background="LightSteelBlue" Name="btnDeleteListItem" Width="75" Margin="5,2,5,10" Click="btnDeleteListItem_Click">Удалить</Button>
-                    <Button Background="LightSteelBlue" Name="btnSelectListItem" Width="75" Margin="5,2,5,10" Click="btnSelect_Click">Выбрать</Button>
+                    <Button Background="LightSteelBlue" Name="btnAddListItem" Width="75" Margin="5,2,5,10" >Добавить</Button>
+                    <Button Background="LightSteelBlue" Name="btnDeleteListItem" Width="75" Margin="5,2,5,10" >Удалить</Button>
+                    <Button Background="LightSteelBlue" Name="btnSelectListItem" Width="75" Margin="5,2,5,10">Выбрать</Button>
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -55,15 +62,15 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Margin="7">ФИО:</TextBlock>
-                <TextBox Name="FIO" Margin="5" Grid.Column="1" Text="{Binding Path=Name}"></TextBox>
+                <TextBox Name="FIO" Margin="5" Grid.Column="1" Text="{Binding Path=FIO}"></TextBox>
                 <TextBlock Margin="7" Grid.Row="1">Возраст:</TextBlock>
                 <TextBox Margin="5" Grid.Row="1" Grid.Column="1" Text="{Binding Path=Age}"></TextBox>
                 <TextBlock Margin="7" Grid.Row="2">Зарплата (руб):</TextBlock>
                 <TextBox Margin="5" Grid.Row="2" Grid.Column="1" Text="{Binding Path=Salary}"></TextBox>
                 <TextBlock Margin="7,7,7,0" Grid.Row="3">Список сотрудников:</TextBlock>
                 <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Right" Orientation="Horizontal">
-                    <Button Background="White" Name="btnAddListItem1" Width="75" Margin="5,2,5,2" Click="btnAddListItem1_Click">Добавить</Button>
-                    <Button Background="White" Name="btnDeleteListItem1" Width="75" Margin="5,2,5,2" Click="btnDeleteListItem1_Click">Удалить</Button>
+                    <Button Background="White" Name="btnAddListItem1" Width="75" Margin="5,2,5,2" >Добавить</Button>
+                    <Button Background="White" Name="btnDeleteListItem1" Width="75" Margin="5,2,5,2" >Удалить</Button>
                 </StackPanel>
                 <ListView Margin="7" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"
                          x:Name="Workers" SelectionMode="Single">
@@ -72,7 +79,7 @@
                             <GridViewColumn
                             Header="Имя"
                             Width="330"
-                            DisplayMemberBinding="{Binding Path=Name}"/>
+                            DisplayMemberBinding="{Binding Path=FIO}"/>
                             <GridViewColumn
                             Header="Возраст"
                             Width="130"
